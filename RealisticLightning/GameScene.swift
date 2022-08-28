@@ -9,10 +9,21 @@ import SpriteKit
 import GameplayKit
 
 class GameScene: SKScene {
+
     override func didMove(to view: SKView) {
-        self.backgroundColor = .black
-        
-        let line = LineShape.getShape(points: [CGPoint(x: 0, y: 0), CGPoint(x: 50, y: 50)])
-        self.addChild(line)
+        configure()
+
+        Lightning.lightningStrike(
+            throughPath: Lightning.generateLightningPath(
+                startingFrom: CGPoint(x: frame.midX, y: frame.size.height/2)
+            ),
+            delegateView: self
+        )
     }
+
+    func configure() {
+        self.backgroundColor = .black
+    }
+
 }
+

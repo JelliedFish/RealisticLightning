@@ -12,7 +12,9 @@ class GameScene: SKScene {
 
     override func didMove(to view: SKView) {
         configure()
+    }
 
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         Lightning.lightningStrike(
             throughPath: Lightning.generateLightningPath(
                 startingFrom: CGPoint(x: frame.midX, y: frame.size.height/2)
